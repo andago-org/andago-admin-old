@@ -7,7 +7,6 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import 'whatwg-fetch'
 
 const groupBy = [
   {
@@ -31,19 +30,4 @@ const headers = [
 
 const data = [] as any[]
 
-function getVehicles() {
-  fetch('http://localhost:3000/vehicles')
-    .then((response) => response.json())
-    .then((json) => {
-      json.forEach((element: any) => {
-        data.push({
-          name: element.car_number,
-          passenger: element.passenger,
-          vehicle_photo: element.vehicle_photo,
-          status: element.status,
-          action: element.action,
-        })
-      })
-    })
-}
 </script>
