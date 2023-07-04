@@ -4,23 +4,29 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
   {
     path: '/',
-    component: () => import('@/layouts/default/Default.vue'),
+    redirect: '/login'
+  },
+  {
+    path: '/login',
+    component: () => import('@/views/auth/Login.vue'),
+  },
+  {
+    path: '/dashboard',
+    component: () => import('@/layouts/Dashboard.vue'),
+    redirect: '/dashboard/settings',
     children: [
-      {
-        path: 'vehicles',
-        name: 'Vehicles',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "home" */ '@/views/Vehicles.vue'),
-      },
       {
         path: 'settings',
         name: 'Settings',
         component: () => import(/* webpackChunkName: "home" */ '@/views/Settings.vue'),
       },
-    ],
-  },
+      {
+        path: 'vehicles',
+        name: 'Vehicles',
+        component: () => import(/* webpackChunkName: "home" */ '@/views/Vehicles.vue'),
+      },
+    ]
+  }
 ]
 
 const router = createRouter({

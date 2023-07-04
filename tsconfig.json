@@ -3,6 +3,7 @@
     "baseUrl": ".",
     "target": "esnext",
     "useDefineForClassFields": true,
+    "importHelpers": true,
     "allowSyntheticDefaultImports": true,
     "composite": true,
     "module": "esnext",
@@ -27,5 +28,8 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "vite.config.ts"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }

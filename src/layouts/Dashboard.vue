@@ -11,8 +11,8 @@
       <v-divider></v-divider>
 
       <v-list density="compact" nav>
-        <v-list-item prepend-icon="mdi-car-side" title="Vehicles" value="vehicles" to="vehicles"></v-list-item>
         <v-list-item prepend-icon="mdi-cog" title="Settings" value="settings" to="settings"></v-list-item>
+        <v-list-item prepend-icon="mdi-car-side" title="Vehicles" value="vehicles" to="vehicles"></v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-main>
