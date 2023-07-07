@@ -12,7 +12,7 @@ class Authing {
   public async start()
   {
     if (this.client.isRedirectCallback()) {
-      console.log('redirect');
+      console.log('redirect')
 
       /**
        * 以跳转方式打开 Authing 托管的登录页，认证成功后，
@@ -24,7 +24,9 @@ class Authing {
         window.location.replace('/')
       });
     } else {
-      await this.client.getLoginState()
+      const state = await this.client.getLoginState()
+      console.log(await this.client.getUserInfo())
+      console.log(state)
     }
   }
 

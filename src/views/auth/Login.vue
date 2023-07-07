@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-btn color="primary">Login</v-btn>
+    <v-btn color="primary" @click="authing.login()">Login</v-btn>
   </div>
 </template>
 
