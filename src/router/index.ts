@@ -1,5 +1,6 @@
 // Composables
 import { createRouter, createWebHistory } from 'vue-router'
+import { useAppStore } from "@/store/app";
 
 const routes = [
   {
@@ -32,6 +33,15 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+})
+
+router.beforeEach(async (to) => {
+  const store = useAppStore();
+
+  if (!store.loginState)
+  {
+    return false
+  }
 })
 
 export default router

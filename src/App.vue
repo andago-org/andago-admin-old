@@ -4,8 +4,13 @@
 
 <script lang="ts" setup>
 import { useAppStore } from './store/app';
+import {onMounted} from "vue";
+import authing from "@/services/authing";
 
 const store = useAppStore()
 
-// store.createAuth0Client()
+onMounted(async () => {
+  await authing.check()
+  store.loginState = authing.loginState
+})
 </script>
