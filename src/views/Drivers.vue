@@ -11,26 +11,34 @@
 
       <tbody>
       <tr
-        v-for="vehicle in data"
-        :key="vehicle.name"
+        v-for="driver in data"
+        :key="driver.id"
       >
-        <td class="text-center">{{ vehicle?.plate_number }}</td>
-        <td class="text-center">{{ vehicle?.passenger.user.name }}</td>
+        <td class="text-center">{{ driver?.user.name }}</td>
         <td class="text-center">
           <v-img
             class="bg-white"
             height="100"
             :aspect-ratio="1"
-            :src="storageUrl + '/vehicles/' + vehicle?.vehicle_photo"
+            :src="storageUrl + '/driver_photos/' + driver?.profile_photo"
+          ></v-img>
+        </td>
+        <td class="text-center">{{ driver?.license_number }}</td>
+        <td class="text-center">
+          <v-img
+            class="bg-white"
+            height="100"
+            :aspect-ratio="1"
+            :src="storageUrl + '/license_photos/' + driver?.license_photo"
           ></v-img>
         </td>
         <td class="text-center">
           <v-select
-            v-model="vehicle.status"
-            :items="vehicleStatuses"
+            v-model="driver.status"
+            :items="statuses"
             item-title="text"
             item-value="value"
-            @update:model-value="updateVehicle(vehicle)"
+            @update:model-value="updateDriver(driver)"
           ></v-select>
         </td>
       </tr>
@@ -55,16 +63,17 @@ const groupBy = [
 ]
 
 const headers = [
-  { text: 'Car Number', value: 'plate_number' },
-  { text: 'Passenger', value: 'passenger.user.name' },
-  { text: 'Car Photo', value: 'vehicle_photo' },
+  { text: 'Driver Name', value: 'user.name' },
+  { text: 'Profile Photo', value: 'profile_photo' },
+  { text: 'License Number', value: 'license_number' },
+  { text: 'License Photo', value: 'license_photo' },
   { text: 'Status', value: 'status' },
   // { text: 'Actions', value: 'action' },
 ]
 
 const data = ref<any[]>([] as any[])
 
-const vehicleStatuses = [
+const statuses = [
   {
     text: 'Pending',
     value: 'pending',
@@ -80,28 +89,26 @@ const vehicleStatuses = [
 ]
 
 onMounted(() => {
-  getVehicles()
+  getDrivers()
 })
 
-function getVehicles() {
-  store.axios.post('/getVehicles')
+function getDrivers() {
+  store.axios.post('/getDrivers')
     .then((res: any) => {
-      const vehicles = res.data
+      const drivers = res.data
 
-      console.log(vehicles)
-      data.value = vehicles
+      data.value = drivers
     })
 }
 
-function updateVehicle(vehicle: any) {
-  console.log(vehicle)
-  store.axios.post('/updateVehicle', {
-    vehicleId: vehicle.id,
-    status: vehicle.status
+function updateDriver(driver: any) {
+  store.axios.post('/updateDriver', {
+    driverId: driver.id,
+    status: driver.status,
   })
     .then((res: any) => {
       console.log(res.data)
-      getVehicles()
+      getDrivers()
     })
 }
 
