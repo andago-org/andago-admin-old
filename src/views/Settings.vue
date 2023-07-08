@@ -28,7 +28,9 @@ const store = useAppStore()
 
 const valid = ref(true)
 
-const originalConfig = reactive({
+const originalConfig = reactive({})
+
+const config = reactive({
   min_topup_amount: 0,
   min_fare: 0,
   fare_per_km: 0,
@@ -38,14 +40,12 @@ const originalConfig = reactive({
   free_wait_min: 0,
 })
 
-const config = reactive({})
-
 const configChanged = computed(() => {
   return JSON.stringify(config) !== JSON.stringify(originalConfig)
 })
 
 onMounted(() => {
-  copyReactive(config, originalConfig)
+  copyReactive(originalConfig, config)
   getConfig()
 })
 
