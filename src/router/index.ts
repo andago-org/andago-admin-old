@@ -38,7 +38,7 @@ const router = createRouter({
 
 router.beforeEach(async (to) => {
   const store = useAppStore();
-
+  return true
   if (!store.loginState)
   {
     return false

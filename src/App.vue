@@ -10,7 +10,7 @@ import authing from "@/services/authing";
 const store = useAppStore()
 
 onMounted(async () => {
-  await authing.check()
+  // await authing.check()
   store.loginState = authing.loginState
 })
 </script>

@@ -17,8 +17,8 @@ export const useAppStore = defineStore('app', {
   getters: {
     axios() {
       axiosInstance.defaults.headers['Accept'] = 'application/json'
-      axiosInstance.defaults.headers['Authorization'] = `Bearer ${this.loginState.accessToken}`
-      axiosInstance.defaults.headers['Id-Token'] = this.loginState.idToken
+      // axiosInstance.defaults.headers['Authorization'] = `Bearer ${this.loginState.accessToken}`
+      // axiosInstance.defaults.headers['Id-Token'] = this.loginState.idToken
 
       return axiosInstance;
     }

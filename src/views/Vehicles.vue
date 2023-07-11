@@ -36,6 +36,16 @@
       </tr>
       </tbody>
     </v-table>
+
+    <v-overlay
+      activator="parent"
+      location-strategy="connected"
+      scroll-strategy="none"
+    >
+      <v-card class="pa-2">
+        Hello!
+      </v-card>
+    </v-overlay>
   </v-app>
 </template>
 
