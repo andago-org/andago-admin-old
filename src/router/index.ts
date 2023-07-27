@@ -13,19 +13,29 @@ const routes = [
     redirect: '/settings',
     children: [
       {
+        path: '/test',
+        name: 'Test',
+        component: () => import('@/views/Test.vue'),
+      },
+      {
         path: 'settings',
         name: 'Settings',
-        component: () => import(/* webpackChunkName: "home" */ '@/views/Settings.vue'),
+        component: () => import('@/views/Settings.vue'),
       },
       {
         path: 'vehicles',
         name: 'Vehicles',
-        component: () => import(/* webpackChunkName: "home" */ '@/views/Vehicles.vue'),
+        component: () => import('@/views/Vehicles.vue'),
       },
       {
         path: 'drivers',
         name: 'Drivers',
-        component: () => import(/* webpackChunkName: "home" */ '@/views/Drivers.vue'),
+        component: () => import('@/views/Drivers.vue'),
+      },
+      {
+        path: 'trips',
+        name: 'Trips',
+        component: () => import('@/views/Trips.vue'),
       },
     ]
   }

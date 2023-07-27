@@ -13,6 +13,8 @@ const axiosInstance = axios.create({
 export const useAppStore = defineStore('app', {
   state: () => ({
     loginState: null as any,
+    tripProgressMapViewerOpen: false,
+    viewingTrip: null as any,
   }),
   getters: {
     axios() {

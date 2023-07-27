@@ -19,6 +19,7 @@
         <v-list-item prepend-icon="mdi-cog" title="Settings" value="settings" to="settings"></v-list-item>
         <v-list-item prepend-icon="mdi-car-side" title="Vehicles" value="vehicles" to="vehicles"></v-list-item>
         <v-list-item prepend-icon="mdi-card-account-details-outline" title="Drivers" value="drivers" to="drivers"></v-list-item>
+        <v-list-item prepend-icon="mdi-flag-variant" title="Trips" value="trips" to="trips"></v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-main>

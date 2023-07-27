@@ -269,6 +269,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@googlemaps/js-api-loader@npm:^1.16.2":
+  version: 1.16.2
+  resolution: "@googlemaps/js-api-loader@npm:1.16.2"
+  dependencies:
+    fast-deep-equal: ^3.1.3
+  checksum: 122ee57cc6a936e50358aedc4e79042353590467210e901fb42d4e7d9123c248c4db5cd5407a350cb5bea6de9e9ef1a508c08ba593475285d90bc4b93db42f51
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.11.8":
   version: 0.11.8
   resolution: "@humanwhocodes/config-array@npm:0.11.8"
@@ -369,6 +378,13 @@ __metadata:
   version: 2.0.0
   resolution: "@tootallnate/once@npm:2.0.0"
   checksum: ad87447820dd3f24825d2d947ebc03072b20a42bfc96cbafec16bff8bbda6c1a81fcb0be56d5b21968560c5359a0af4038a68ba150c3e1694fe4c109a063bed8
+  languageName: node
+  linkType: hard
+
+"@types/google.maps@npm:^3.53.5":
+  version: 3.53.5
+  resolution: "@types/google.maps@npm:3.53.5"
+  checksum: 57862d61435a523ae769d19ebcca99dc1d4a2ea976bbdf92da25bda3f2bed71871f8d78ef50b567bcbc54c8a78a55cfa16e8bd785e3d503fe2c3b5ef8fd76972
   languageName: node
   linkType: hard
 
@@ -822,7 +838,9 @@ __metadata:
   dependencies:
     "@authing/web": ^5.1.8
     "@babel/types": ^7.21.4
+    "@googlemaps/js-api-loader": ^1.16.2
     "@mdi/font": 7.0.96
+    "@types/google.maps": ^3.53.5
     "@types/node": ^18.15.0
     "@types/webfontloader": ^1.6.35
     "@vitejs/plugin-vue": ^3.0.3

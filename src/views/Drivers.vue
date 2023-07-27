@@ -14,7 +14,7 @@
         v-for="driver in data"
         :key="driver.id"
       >
-        <td class="text-center">{{ driver?.user.name }}</td>
+        <td class="text-center">{{ driver?.user?.name }}</td>
         <td class="text-center">
           <v-img
             class="bg-white"
