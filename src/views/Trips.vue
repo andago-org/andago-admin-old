@@ -20,13 +20,7 @@
         <td class="text-center">{{ trip?.driver?.user?.name }}</td>
         <td class="text-center">{{ trip?.passenger?.selectedVehicle?.plate_number }}</td>
         <td class="text-center">
-          <v-select
-            v-model="trip.status"
-            :items="statuses"
-            item-title="text"
-            item-value="value"
-            :disabled="true"
-          ></v-select>
+          {{ statuses[trip?.status] }}
         </td>
         <td class="text-center">
           <v-btn
@@ -72,20 +66,11 @@ const headers = [
 
 const data = ref<any[]>([] as any[])
 
-const statuses = [
-  {
-    text: 'Heading to Pickup',
-    value: 'accepted',
-  },
-  {
-    text: 'Waiting for Passenger',
-    value: 'arrived',
-  },
-  {
-    text: 'Heading to Destination',
-    value: 'started',
-  },
-]
+const statuses = {
+  accepted: 'Heading to Pickup',
+  arrived: 'Waiting for Passenger',
+  started: 'Heading to Destination',
+}
 
 onMounted(() => {
   getTrips()
