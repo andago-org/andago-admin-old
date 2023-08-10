@@ -70,7 +70,7 @@ const statuses = {
   accepted: 'Heading to Pickup',
   arrived: 'Waiting for Passenger',
   started: 'Heading to Destination',
-}
+} as any
 
 onMounted(() => {
   getTrips()
