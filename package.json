@@ -1,7 +1,4 @@
 {
-  "compilerOptions": {
-    "strict": true
-  },
   "name": "andago-admin",
   "version": "0.0.0",
   "private": true,
