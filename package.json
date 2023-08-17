@@ -19,7 +19,7 @@
     "pinia": "^2.0.0",
     "pinia-plugin-persist": "^1.0.0",
     "roboto-fontface": "*",
-    "vue": "^3.3.0",
+    "vue": "latest",
     "vue-router": "^4.0.0",
     "vuetify": "^3.3.0",
     "webfontloader": "^1.0.0"
@@ -31,14 +31,15 @@
     "@types/node": "^18.15.0",
     "@types/stylelint": "^14.0.0",
     "@types/webfontloader": "^1.6.35",
-    "@vitejs/plugin-vue": "^3.0.3",
+    "@vitejs/plugin-vue": "latest",
     "@vue/eslint-config-typescript": "^11.0.0",
     "eslint": "^8.37.0",
     "eslint-plugin-vue": "^9.3.0",
     "sass": "^1.60.0",
     "typescript": "^5.1.6",
-    "vite": "^4.2.0",
+    "vite": "latest",
     "vite-plugin-checker": "^0.6.1",
     "vite-plugin-vuetify": "^1.0.0"
-  }
+  },
+  "packageManager": "yarn@3.6.1"
 }

@@ -1,27 +1,25 @@
-# Use the official Node.js image as a base image
-FROM node:16
+# Build the Node.js app
+FROM node:16 as builder
 
-ENV YARN_VERSION 3.6.1
-
-RUN yarn policies set-version $YARN_VERSION
-
-# Set the working directory in the Docker container
 WORKDIR /app
 
-# Copy the package.json and yarn.lock to the container
-COPY package.json yarn.lock ./
-
-# Install project dependencies in the container using Yarn
+COPY .yarn .yarn/
+RUN apt-get update && apt-get install -y build-essential && apt-get clean
+RUN curl -o- -L https://yarnpkg.com/install.sh | bash
+COPY package.json yarn.lock .yarnrc .yarnrc.yml ./
 RUN yarn install
-
-# Copy the rest of the application code into the container
 COPY . .
-
-# Build the Vue app for production using Yarn
 RUN yarn build
 
-# Expose port 80 for the app
+# Nginx phase
+FROM nginx:alpine
+
+# Copy the built app to the Nginx server
+COPY --from=builder /app/dist /app/dist
+# Copy the Nginx configuration
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Expose port 80
 EXPOSE 80
 
-# Serve the app using a simple static server
-CMD ["yarn", "serve"]
+CMD ["nginx", "-g", "daemon off;"]
