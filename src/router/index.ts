@@ -46,13 +46,13 @@ const router = createRouter({
   routes,
 })
 
-router.beforeEach(async (to) => {
-  const store = useAppStore();
-  return true
-  if (!store.loginState)
-  {
-    return false
-  }
-})
+// router.beforeEach(async (to) => {
+//   const store = useAppStore();
+//   return true
+//   if (!store.loginState)
+//   {
+//     return false
+//   }
+// })
 
 export default router

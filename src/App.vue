@@ -9,11 +9,11 @@ import authing from "@/services/authing";
 
 const store = useAppStore()
 
-onMounted(async () => {
-  if (import.meta.env.VITE_APP_ENV != "local")
-  {
-    await authing.check()
-  }
-  store.loginState = authing.loginState
-})
+// onMounted(async () => {
+//   if (import.meta.env.VITE_APP_ENV != "local")
+//   {
+//     await authing.check()
+//   }
+//   store.loginState = authing.loginState
+// })
 </script>
